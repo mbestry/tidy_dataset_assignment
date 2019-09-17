@@ -36,4 +36,5 @@ mean_table <- merge(activity_labels, mean_table, by.y = 'V1')
 colnames(mean_table)[2] <- c('Activity')
 mean_table <- mean_table[,c(-1)]
 
-write.table(mean_table, file = "means_table.txt", row.names = FALSE)
+write.table(mean_std_dataset, file = "./means_and_std.txt", row.names = FALSE)
+write.table(mean_table, file = "./means_table.txt", row.names = FALSE)
