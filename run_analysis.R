@@ -1,13 +1,18 @@
-## This program requires all .txt files in UCI HAR Dataset to be imported and datasets named according to their .txt file names
+X_test <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt", quote="\"", comment.char="")
+y_test <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", quote="\"", comment.char="")
+subject_test <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", quote="\"", comment.char="")
+X_train <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/traimn/X_train.txt", quote="\"", comment.char="")
+y_train <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_train.txt", quote="\"", comment.char="")
+subject_train <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", quote="\"", comment.char="")
+features <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt", quote="\"", comment.char="")
+activity_labels <- read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt", quote="\"", comment.char="")
 
-## Merges the training and the test sets to create one data set.
 colnames(X_test) <- features$V2
 colnames(X_train) <- features$V2
 Test_dataset <- cbind(subject_test, y_test, X_test)
 Train_dataset <- cbind(subject_train, y_train, X_train)
 Merged_df <- rbind(Test_dataset, Train_dataset)
 
-## Extracts only the measurements on the mean and standard deviation for each measurement.
 mean_std_colnames <- grep('-mean()|-std()',features$V2)
 freqmean_colnames <- grep('-meanFreq()',features$V2)
 mean_std_colnames <- mean_std_colnames[!(mean_std_colnames %in% freqmean_colnames)]
