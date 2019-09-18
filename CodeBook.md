@@ -31,3 +31,14 @@ fBodyGyroMag
 fBodyGyroJerkMag
 
 Steps:
+
+1. Import data .txt files and name the datasets by their .txt file names
+2. Annotate the test and train with subject and activity numbers
+3. Merge the annotated test and train datasets into one larger dataset
+4. Filter out mean and std columns, whilst excluding meanFreq columns
+5. Label subject column
+6. Replace activity numbers with activity names
+7. Create means only dataset without meanFreq
+8. Create table providing averages for each variable by subject and activity
+9. Export mean and std table as a .txt file
+10. Export table with averages for each variable by subject and activity as a .txt file
